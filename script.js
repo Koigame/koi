@@ -22,6 +22,24 @@ document.addEventListener('DOMContentLoaded', function() {
             case 'RL':
                 gif.style.animationName = 'driftLeft';
                 break;
+            case 'UD':
+                gif.style.animationName = 'driftDown';
+                break;
+            case 'DU':
+                gif.style.animationName = 'driftUp';
+                break;
+            case 'BLTR':
+                gif.style.animationName = 'driftBLTR';
+                break;
+            case 'BRTL':
+                gif.style.animationName = 'driftBRTL';
+                break;
+            case 'TLBR':
+                gif.style.animationName = 'driftTLBR';
+                break;
+            case 'TRBL':
+                gif.style.animationName = 'driftTRBL';
+                break;
             // Add cases for other directions
         }
         container.appendChild(gif);
