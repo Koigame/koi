@@ -1,0 +1,170 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(to top, #78ddfa 0%, #85e0fa 25%, #93e3fb 50%, #a0e7fb 75%, #aeeafc 100%);
+}
+
+.custom-cursor {
+    /* Placeholder for dynamic cursor changes via JavaScript */
+    cursor: none;
+}
+
+.koi, .symbol {
+    position: absolute;
+    animation: driftRight wavy infinite; /* Default animation setup */
+}
+
+#follower {
+    z-index: 2000; /* Higher than any other element */
+}
+
+#sunGif {
+    position: fixed;
+    width: 300px; /* Adjust based on the size of your GIF */
+    z-index: 100; /* Ensure it's behind other content */
+    animation: floatSun 30s infinite linear; /* Adjust timing for the loop as needed */
+    pointer-events: none; /* Prevents the GIF from interfering with clicks on elements behind it */
+}
+
+@keyframes floatSun {
+    0%, 100% {
+        transform: translate(0, 100vh); /* Start and end at the bottom left */
+        opacity: 0; /* Start and end fully transparent for a smooth appearance/disappearance */
+    }
+    25% {
+        transform: translate(50vw, 50vh); /* Move to the center of the screen */
+        opacity: 1;
+    }
+    50% {
+        transform: translate(100vw, 0); /* Move to the top right */
+        opacity: 1;
+    }
+    75% {
+        transform: translate(50vw, 50vh); /* Move back towards the center */
+        opacity: 1;
+    }
+}
+
+@keyframes driftRight {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100vw); }
+}
+
+@keyframes driftLeft {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100vw); }
+}
+
+@keyframes driftUp {
+    0% { transform: translateY(100%); }
+    100% { transform: translateY(-100vw); }
+}
+
+@keyframes driftDown {
+    0% { transform: translateY(100%); }
+    100% { transform: translateY(-100vw); }
+}
+
+@keyframes driftBLTR {
+    0% { transform: translateX(-100%) translateY(100%); }
+    100% { transform: translateX(100vw) translateY(-100vh); }
+}
+
+@keyframes driftBRTL {
+    0% { transform: translateX(100%) translateY(100%); }
+    100% { transform: translateX(-100vw) translateY(-100vh); }
+}
+
+@keyframes driftTLBR {
+    0% { transform: translateX(-100%) translateY(-100%); }
+    100% { transform: translateX(100vw) translateY(100vh); }
+}
+
+@keyframes driftTRBL {
+    0% { transform: translateX(100%) translateY(-100%); }
+    100% { transform: translateX(-100vw) translateY(100vh); }
+}
+
+
+/* Container, modal, and button styling remains the same */
+.container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    text-align: center;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001; /* High z-index to ensure it appears above other content */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Allows scrolling if the content is too long */
+    background-color: rgba(0, 0, 0, 0.4); /* Translucent black background */
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fff; /* Change this color as needed */
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Adjust width for different screen sizes */
+    max-width: 600px; /* Ensures the modal isn't too wide on large screens */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    position: relative; /* Needed for positioning the close button */
+}
+
+/* Style adjustments for smaller screens */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 90%; /* Allows more space on small screens */
+        padding: 10px; /* Adjust padding on small screens */
+    }
+}
+
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    color: black;
+    cursor: pointer;
+}
+
+button {
+    font-size: 1em;
+    padding: 10px 20px;
+    border: 2px solid black;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: black;
+    color: white;
+}
+
+#visitorCounter {
+    position: fixed;
+    bottom: 10px; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px; /* Adjust as needed */
+    color: #fff; /* Adjust color as needed */
+    z-index: 1000; /* Ensure it's visible above other elements */
+}
