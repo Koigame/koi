@@ -98,7 +98,7 @@ document.addEventListener('mousemove', function(event) {
         bodyElement.style.cursor = `url(${diffX > 0 ? 'collector.png' : 'collector.png'}), auto`;
         follower.src = diffX > 0 ? 'Boat3.gif' : 'Boat1.gif';
     } else {
-        bodyElement.style.cursor = `url(${diffY > 0 ? 'boat.png' : 'boat.png'}), auto`;
+        bodyElement.style.cursor = `url(${diffY > 0 ? 'collector.png' : 'collector.png'}), auto`;
         follower.src = diffY > 0 ? 'Boat4.gif' : 'Boat2.gif';
     }
 
