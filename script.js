@@ -81,7 +81,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     for (let i = 0; i < 10; i++) {
         createStaticGifElement('Eth.gif', 'symbol', symbolsContainer);
-    }
+    
+});
 
 document.addEventListener('mousemove', function(event) {
     if (typeof lastX === 'undefined' || typeof lastY === 'undefined') {
