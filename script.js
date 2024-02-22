@@ -8,12 +8,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const gif = document.createElement('img');
         gif.src = `${color}${direction}.gif`; // Assumes naming convention like GoldLR.gif
         gif.className = 'koi';
-        const size = Math.random() * (160 - 80) + 80;
+        const size = Math.random() * (180 - 80) + 80;
         gif.style.width = `${size}px`;
         gif.style.position = 'absolute';
         gif.style.animationDuration = `${Math.random() * (60 - 20) + 20}s`;
-        gif.style.top = `${Math.random() * (window.innerHeight - 50)}px`;
-        gif.style.left = `${Math.random() * (window.innerWidth - 50)}px`;
+        gif.style.top = `${Math.random() * (window.innerHeight - 20)}px`;
+        gif.style.left = `${Math.random() * (window.innerWidth - 20)}px`;
         // Define animation direction based on the gif direction
         switch (direction) {
             case 'LR':
@@ -71,15 +71,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Adjusted to demonstrate creating 'abc' gifs
-    for (let i = 0; i < 20; i++) { 
+    for (let i = 0; i < 5; i++) { 
         createStaticGifElement('Secret.gif', 'abc', abcContainer);
     }
     
     // Create coin and Eth symbols
-    for (let i = 0; i < 40; i++) {
+    for (let i = 0; i < 10; i++) {
         createStaticGifElement('coin.gif', 'symbol', symbolsContainer);
     }
-    for (let i = 0; i < 30; i++) {
+    for (let i = 0; i < 10; i++) {
         createStaticGifElement('Eth.gif', 'symbol', symbolsContainer);
     }
 
