@@ -1,8 +1,7 @@
-document.addEventListener('DOMContentLoaded', function() {
+function createCloudsAndSymbols() {
     const koiContainer = document.getElementById('koi');
     const abcContainer = document.getElementById('abc');
     const symbolsContainer = document.getElementById('symbols');
-
     // For dynamic koi gifs with direction and color
     function createDynamicGifElement(color, direction, container) {
         const gif = document.createElement('img');
@@ -81,8 +80,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     for (let i = 0; i < 10; i++) {
         createStaticGifElement('Eth.gif', 'symbol', symbolsContainer);
-    
-});
+    }
+}
 
 document.addEventListener('mousemove', function(event) {
     if (typeof lastX === 'undefined' || typeof lastY === 'undefined') {
