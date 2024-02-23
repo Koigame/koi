@@ -14,7 +14,7 @@ body, html {
 
 .koi, .symbol {
     position: absolute;
-    animation: driftRight wavy infinite; /* Default animation setup */
+    animation: driftRight; /* Default animation setup */
 }
 
 #follower {
