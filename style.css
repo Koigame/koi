@@ -4,7 +4,10 @@ body, html {
     overflow: hidden;
     position: relative;
     font-family: 'Nunito', sans-serif;
-    background: linear-gradient(to top, #78ddfa 0%, #85e0fa 25%, #93e3fb 50%, #a0e7fb 75%, #aeeafc 100%);
+    background-image: url('pond.gif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .custom-cursor {
