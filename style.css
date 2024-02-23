@@ -37,8 +37,8 @@ body, html {
 }
 
 @keyframes driftDown {
-    0% { transform: translateY(100%); }
-    100% { transform: translateY(-100vw); }
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100vw); }
 }
 
 @keyframes driftBLTR {
