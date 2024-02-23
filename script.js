@@ -1,8 +1,6 @@
 function createCloudsAndSymbols() {
     const koiContainer = document.getElementById('koi');
-    const symbolsContainer = document.getElementById('symbols');
     
-    // For dynamic koi gifs with direction and color
     function createDynamicGifElement(color, direction, container) {
         const gif = document.createElement('img');
         gif.src = `${color}${direction}.gif`; // Assumes naming convention like GoldLR.gif
@@ -130,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Modal functionality
 var modal = document.getElementById("paymentOptions");
-var btn = document.getElementById("donateButton");
+var btn = document.getElementById("koigame");
 
 btn.onclick = function() {
     modal.style.display = "block";
