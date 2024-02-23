@@ -21,33 +21,6 @@ body, html {
     z-index: 2000; /* Higher than any other element */
 }
 
-#sunGif {
-    position: fixed;
-    width: 300px; /* Adjust based on the size of your GIF */
-    z-index: 100; /* Ensure it's behind other content */
-    animation: floatSun 30s infinite linear; /* Adjust timing for the loop as needed */
-    pointer-events: none; /* Prevents the GIF from interfering with clicks on elements behind it */
-}
-
-@keyframes floatSun {
-    0%, 100% {
-        transform: translate(0, 100vh); /* Start and end at the bottom left */
-        opacity: 0; /* Start and end fully transparent for a smooth appearance/disappearance */
-    }
-    25% {
-        transform: translate(50vw, 50vh); /* Move to the center of the screen */
-        opacity: 1;
-    }
-    50% {
-        transform: translate(100vw, 0); /* Move to the top right */
-        opacity: 1;
-    }
-    75% {
-        transform: translate(50vw, 50vh); /* Move back towards the center */
-        opacity: 1;
-    }
-}
-
 @keyframes driftRight {
     0% { transform: translateX(-100%); }
     100% { transform: translateX(100vw); }
