@@ -81,6 +81,12 @@ document.addEventListener('mousemove', function(event) {
         return;
     }
 
+document.addEventListener('mousemove', function(event) {
+        // Update follower position dynamically with the mouse movement
+        follower.style.left = `${event.pageX - follower.offsetWidth / 2}px`;
+        follower.style.top = `${event.pageY - follower.offsetHeight / 2}px`;
+    }
+
     const diffX = event.clientX - lastX;
     const diffY = event.clientY - lastY;
     const bodyElement = document.querySelector('body');
