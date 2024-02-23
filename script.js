@@ -6,17 +6,30 @@ document.addEventListener('DOMContentLoaded', function() {
     const btn = document.getElementById("donateButton");
     let lastX, lastY; // Declare variables to store the last mouse position
 
-    // For dynamic koi gifs with direction and color
     function createDynamicGifElement(color, direction, container) {
         const gif = document.createElement('img');
         gif.src = `${color}${direction}.gif`;
         gif.className = 'koi';
+        setRandomPositionAndAnimation(gif, direction);
+
+        // Re-apply animation each time it ends to simulate continuous movement
+        gif.addEventListener('animationend', () => setRandomPositionAndAnimation(gif, direction));
+
+        container.appendChild(gif);
+    }
+    
+    function setRandomPositionAndAnimation(gif, direction) {
         const size = Math.random() * (180 - 80) + 80;
         gif.style.width = `${size}px`;
         gif.style.position = 'absolute';
-        gif.style.animationDuration = `${Math.random() * (60 - 20) + 20}s`;
+        // Randomly reset position and animation for continuous looping
         gif.style.top = `${Math.random() * (window.innerHeight - 20)}px`;
         gif.style.left = `${Math.random() * (window.innerWidth - 20)}px`;
+        gif.style.animationName = direction.toLowerCase(); // Ensure you have corresponding CSS animations
+        gif.style.animationDuration = `${Math.random() * (60 - 20) + 20}s`;
+        gif.style.animationIterationCount = 'infinite';
+        gif.style.animationTimingFunction = 'linear';
+    }
         
         // Define animation direction based on the gif direction
         switch (direction) {
