@@ -87,10 +87,10 @@ document.addEventListener('mousemove', function(event) {
 
     if (Math.abs(diffX) > Math.abs(diffY)) {
         bodyElement.style.cursor = `url(${diffX > 0 ? 'collector.png' : 'collector.png'}), auto`;
-        follower.src = diffX > 0 ? 'boat3.gif' : 'boat1.gif';
+        follower.src = diffX > 0 ? 'Boat3.gif' : 'Boat1.gif';
     } else {
         bodyElement.style.cursor = `url(${diffY > 0 ? 'collector.png' : 'collector.png'}), auto`;
-        follower.src = diffY > 0 ? 'boat4.gif' : 'boat2.gif';
+        follower.src = diffY > 0 ? 'Boat4.gif' : 'Boat2.gif';
     }
 
     follower.style.display = 'block';
