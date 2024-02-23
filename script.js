@@ -1,7 +1,7 @@
 function createCloudsAndSymbols() {
     const koiContainer = document.getElementById('koi');
-    const abcContainer = document.getElementById('abc');
     const symbolsContainer = document.getElementById('symbols');
+    
     // For dynamic koi gifs with direction and color
     function createDynamicGifElement(color, direction, container) {
         const gif = document.createElement('img');
@@ -55,32 +55,6 @@ function createCloudsAndSymbols() {
         const color = getRandomElement(colors);
         const direction = getRandomElement(directions);
         createDynamicGifElement(color, direction, koiContainer);
-    }
-
-    // For creating abc and symbol gifs
-    function createStaticGifElement(src, className, container) {
-        const gif = document.createElement('img');
-        gif.src = src;
-        gif.className = className;
-        const size = Math.random() * (160 - 80) + 80;
-        gif.style.width = `${className === 'abc' ? size : size / 2}px`;
-        gif.style.animationDuration = `${Math.random() * (60 - 20) + 20}s`;
-        gif.style.top = `${Math.random() * (window.innerHeight - 50)}px`;
-        container.appendChild(gif);
-    }
-
-    // Adjusted to demonstrate creating 'abc' gifs
-    for (let i = 0; i < 5; i++) { 
-        createStaticGifElement('Secret.gif', 'abc', abcContainer);
-    }
-    
-    // Create coin and Eth symbols
-    for (let i = 0; i < 10; i++) {
-        createStaticGifElement('coin.gif', 'symbol', symbolsContainer);
-    }
-    for (let i = 0; i < 10; i++) {
-        createStaticGifElement('Eth.gif', 'symbol', symbolsContainer);
-    
 });
     
 document.addEventListener('mousemove', function(event) {
