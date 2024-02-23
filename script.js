@@ -18,15 +18,39 @@ document.addEventListener('DOMContentLoaded', function() {
         // Set initial random position
         resetPositionAndAnimation(gif, direction);
         // Re-apply animation each time it ends for continuous movement
-        gif.addEventListener('animationend', () => resetPositionAndAnimation(gif, direction));
+          gif.addEventListener('animationend', () => {
+            setTimeout(() => prepareGifForAnimation(gif, direction), getRandomDelay());
+        });
+
         container.appendChild(gif);
     }
 
-    // Reset position and reapply animation for continuous looping
-    function resetPositionAndAnimation(gif, direction) {
+    // This function resets the koi position and applies a new random animation and delay
+    function prepareGifForAnimation(gif, direction) {
+        const size = Math.random() * (180 - 80) + 80;
+        gif.style.width = `${size}px`;
+        gif.style.position = 'absolute';
+        resetPosition(gif); // Set a new random position
+        applyAnimation(gif, direction); // Apply animation based on direction
+    }
+
+    function resetPosition(gif) {
         gif.style.top = `${Math.random() * (window.innerHeight - 20)}px`;
         gif.style.left = `${Math.random() * (window.innerWidth - 20)}px`;
-        applyAnimation(gif, direction);
+    }
+
+    function applyAnimation(gif, direction) {
+        // Simplified for brevity; apply animations as previously defined
+        gif.style.animationName = direction.toLowerCase();
+        gif.style.animationDuration = `${Math.random() * (60 - 20) + 20}s`;
+        gif.style.animationIterationCount = 'infinite';
+        gif.style.animationTimingFunction = 'linear';
+        gif.style.animationDelay = `${getRandomDelay()}s`; // Add a random delay to start
+    }
+
+    function getRandomDelay() {
+        // Return a random delay between 0 to 5 seconds
+        return Math.random() * 5;
     }
 
     // Apply animation based on direction
