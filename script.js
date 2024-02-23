@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
     const koiContainer = document.getElementById('koi');
-    const symbolsContainer = document.getElementById('symbols');
     const follower = document.getElementById('follower'); // Ensure this element exists in your HTML
     const counterElement = document.getElementById('visitorCounter');
     const modal = document.getElementById("paymentOptions");
@@ -62,36 +61,39 @@ document.addEventListener('DOMContentLoaded', function() {
         createDynamicGifElement(color, direction, koiContainer);
     }
     
-    document.addEventListener('mousemove', function(event) {
-        if (typeof lastX === 'undefined' || typeof lastY === 'undefined') {
-            lastX = event.clientX;
-            lastY = event.clientY;
-            return;
-        }
-
-        const diffX = event.clientX - lastX;
-        const diffY = event.clientY - lastY;
-
-        if (Math.abs(diffX) > Math.abs(diffY)) {
-            document.body.style.cursor = `url('collector.png'), auto`;
-            follower.src = diffX > 0 ? 'Boat3.gif' : 'Boat1.gif';
-        } else {
-            document.body.style.cursor = `url('collector.png'), auto`;
-            follower.src = diffY > 0 ? 'Boat4.gif' : 'Boat2.gif';
-        }
-
-        follower.style.display = 'block';
-        follower.style.left = `${event.pageX - halfWidth}px`;
-        follower.style.top = `${event.pageY - halfHeight}px`;
-
+document.addEventListener('mousemove', function(event) {
+    if (typeof lastX === 'undefined' || typeof lastY === 'undefined') {
         lastX = event.clientX;
         lastY = event.clientY;
-    });
+        return;
+    }
 
-    document.addEventListener('mouseleave', function() {
-        document.body.style.cursor = 'auto';
-        follower.style.display = 'none';
-    });
+    const diffX = event.clientX - lastX;
+    const diffY = event.clientY - lastY;
+    const bodyElement = document.querySelector('body');
+
+    if (Math.abs(diffX) > Math.abs(diffY)) {
+        bodyElement.style.cursor = `url(${diffX > 0 ? 'collector.png' : 'collector.png'}), auto`;
+        follower.src = diffX > 0 ? 'boat3.gif' : 'boat1.gif';
+    } else {
+        bodyElement.style.cursor = `url(${diffY > 0 ? 'collector.png' : 'collector.png'}), auto`;
+        follower.src = diffY > 0 ? 'boat4.gif' : 'boat2.gif';
+    }
+
+    follower.style.display = 'block';
+    const halfWidth = 64; // Half the width of the follower GIF
+    const halfHeight = 64; // Half the height of the follower GIF
+    follower.style.left = `${event.pageX - halfWidth}px`;
+    follower.style.top = `${event.pageY - halfHeight}px`;
+
+    lastX = event.clientX;
+    lastY = event.clientY;
+});
+
+document.addEventListener('mouseleave', function() {
+    document.querySelector('body').style.cursor = 'auto';
+    follower.style.display = 'none';
+});
 
     // Define the start date and calculate the difference in days
     const startDate = new Date('2024-01-01');
